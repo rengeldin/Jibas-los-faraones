@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes buttonBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Encabezado */
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('imagenes/inicio.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 2s ease-out;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+.contact-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.contact-button a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  animation: buttonBounce 2s infinite;
+}
+
+.contact-button a:hover {
+  background-color: #e6b800;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  animation: slideIn 1.5s ease-out;
+}
+
+.explore-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #333;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.explore-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Secciones */
+section {
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-out;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la sección "Sobre el Restaurante" */
+.sobre-restaurante {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: url('imagenes/restaurante.jpeg') no-repeat center center/cover;
+  padding-top: 80px; /* Ajusta para compensar el encabezado fijo */
+   padding: 80px 20px; /* Añade espacio alrededor del contenido */
+   background-attachment: fixed; /* Fondo fijo al hacer scroll */
+  position: relative;
+  color: #fff;
+}
+
+.sobre-restaurante::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta el valor para más o menos oscuridad */
+  z-index: 1;
+}
+
+.contenido-sobre {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  z-index: 2;
+  text-align: right;
+  margin: 0 auto; /* Centra el contenido */
+}
+
+.logo-restaurante {
+  width: 500px;
+  height: 500px;
+}
+
+.descripcion-restaurante {
+  max-width: 600px; /* Ancho máximo del contenedor */
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin: 0 auto; /* Centra el contenedor en la sección si hay más espacio */
+  padding: 20px; /* Añade espacio interior */
+  color: #fff; /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+.descripcion-restaurante h2 {
+  font-size: 2.5em;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.descripcion-restaurante p {
+  font-size: 1.2em;
+  line-height: 1.6;
+ 
+}
+
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenido-sobre {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 100px;
+  }
+  
+  .descripcion-restaurante {
+    text-align: center;
+  }
+
+  .logo-restaurante {
+    width: 310px;
+    height: 310px;
+  }
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenido-sobre {
+    flex-direction: column-reverse; /* La imagen primero y el texto abajo en móviles */
+    padding: 10px;
+    text-align: center;
+    margin-top: 50px; /* Baja la sección un poco más */
+  }
+}
+
+/* Estilos para la sección de menú */
+/* Sección del Menú */
+.menu {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ff9100; 
+    padding: 50px 20px;
+    background-image: url('imagenes/fondo-menu.png'); /* URL de la imagen de fondo */
+    background-size: cover;
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    background-position: center;
+    color: #fff;
+    text-align: center;
+}
+
+.menu h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ffcc00;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 columnas */
+  gap: 20px; /* Espacio entre las columnas */
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el contenido */
+}
+
+.item {
+  background-color: rgba(255, 255, 255, 0.658);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.801);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  max-width: 250px; /* Tamaño máximo de las imágenes */
+  margin-bottom: 20px;
+}
+
+.item h3 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  color: rgb(255, 115, 0);
+}
+
+.price {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-items {
+      grid-template-columns: 1fr 1fr; /* 2 columnas en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-items {
+      grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+  }
+}
+
+
+/* Galería */
+.galeria{
+  background-image: url('imagenes/fondo-galeria.jpg');
+  background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+  background-position: center; /* Centra la imagen en la sección */
+  background-attachment: fixed;
+  -webkit-background-size: cover; /* Para mejorar en pantallas de alta resolución */
+  filter: brightness(1.05) contrast(1.1); /* Ajusta ligeramente brillo y contraste */
+}
+.gallery-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gallery-images img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-images img:hover {
+  transform: scale(1.05);
+}
+
+.galeria h2{
+  color: #ffcc00;
+}
+
+/* Redes Sociales */
+.redes {
+  background-image: url('imagenes/fondo-redes'); /* Ruta de la imagen de fondo */
+  background-size: cover; /* Cubre toda la sección */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  min-height: 120vh; /* Aumenta la altura de la sección */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px; /* Espacio superior e inferior */
+  box-sizing: border-box;
+}
+
+
+.header-content {
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+.neon-title {
+  font-size: 2.5em;
+  color: #ffffff;
+  text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6;
+  margin-bottom: 10px;
+}
+
+.neon-subtitle {
+  font-size: 1.2em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-item {
+  background-color: rgba(51, 51, 51, 0.8); /* Fondo semi-transparente */
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.social-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+}
+
+.social-name {
+  font-size: 1em;
+  color: #fff;
+  text-shadow: 0 0 5px #00e6e6;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .social-links {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .social-item {
+      width: 100%; /* Ocupa el 100% del ancho en móviles */
+      max-width: 250px;
+  }
+}
